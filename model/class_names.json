@@ -1,0 +1,22 @@
+[
+    "BSD_defective",
+    "BSD_good",
+    "bottle_defective",
+    "bottle_good",
+    "cable_defective",
+    "cable_good",
+    "carpet_defective",
+    "carpet_good",
+    "grid_defective",
+    "grid_good",
+    "leather_defective",
+    "leather_good",
+    "metal_nut_defective",
+    "metal_nut_good",
+    "toothbrush_defective",
+    "toothbrush_good",
+    "wood_defective",
+    "wood_good",
+    "zipper_defective",
+    "zipper_good"
+]
