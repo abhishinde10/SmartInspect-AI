@@ -1,8 +1,46 @@
-.venv/
+# Python
 __pycache__/
-*.pyc
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg
+*.egg-info/
+dist/
+build/
+eggs/
+.eggs/
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Datasets — too large for Git
+Dataset/
+SmartInspect_Final/
+*.zip
+
+# Jupyter notebooks checkpoints
 .ipynb_checkpoints/
 
-SmartInspect_Final.zip
-SmartInspect_Final/
-dataset/
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Keras home (local config)
+.keras_home/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Temp/scratch
+*.tmp
+*.log
+notebook_key_cells.txt
+Screenshot*.png

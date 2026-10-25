@@ -1,4 +1,5 @@
-streamlit
+streamlit>=1.32.0,<2.0.0
 tensorflow==2.21.0
-numpy
-pillow
+numpy>=1.24.0,<2.0.0
+pillow>=10.0.0
+pytest>=7.0.0
