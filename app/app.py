@@ -174,30 +174,32 @@ with st.sidebar:
         "| Property | Value |\n"
         "|---|---|\n"
         "| Architecture | EfficientNetB2 |\n"
-        "| Classes | 20 |\n"
+        "| Classes | 20 (10 products × Good/Defective) |\n"
         "| Test Accuracy | 89.15% |\n"
-        "| Approach | Transfer Learning |"
+        "| Weighted F1 | 88.84% |\n"
+        "| Approach | Transfer Learning (ImageNet) |\n"
+        "| Input Size | 260 × 260 px |"
     )
     st.divider()
 
-    st.markdown("### ⚠️ Important Notes")
+    st.markdown("### ℹ️ Usage Notes")
     st.markdown(
-        "- This is an **academic prototype** — not validated for real industrial use.\n"
-        "- Confidence score ≠ accuracy guarantee.\n"
-        "- Only reliable for the 10 listed product categories.\n"
-        "- Results may vary with image quality and lighting."
+        "- Best results with clear, well-lit product images.\n"
+        "- Only trained on the 10 listed product categories.\n"
+        "- Confidence score reflects model certainty, not a pass/fail guarantee.\n"
+        "- Low-confidence results should be reviewed manually."
     )
     st.divider()
 
-    st.caption("Academic Prototype — Not for industrial use")
+    st.caption("SmartInspect AI · EfficientNetB2 Transfer Learning")
 
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 # Main area
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 st.title("🔍 SmartInspect AI")
 st.markdown(
-    "Automated industrial defect detection powered by **EfficientNetB2** transfer learning. "
-    "Upload product images to instantly classify them as **Good** or **Defective**."
+    "**AI-Powered Industrial Defect Detection** using CNN + EfficientNetB2 Transfer Learning. "
+    "Upload product images to classify them as **Good** or **Defective** across 10 product categories."
 )
 
 # ── Session state initialisation ─────────────────────────────────────────────
@@ -365,9 +367,11 @@ with tab_single:
             if result["low_conf"]:
                 st.warning(
                     f"⚠️ **Low Confidence ({result['confidence']:.1f}%)** — "
-                    "The model is not confident about this result. "
-                    "The image may be outside the training distribution, poorly lit, "
-                    "or not from a supported product category. Manual verification is advised."
+                    "The model's top prediction score is below the 60% threshold. "
+                    "Possible reasons: the image is not from a supported product category, "
+                    "the product is photographed at an unusual angle or under poor lighting, "
+                    "or this class is inherently harder for the model (e.g. toothbrush, grid). "
+                    "Review the top predictions below and verify manually if needed."
                 )
 
             # ── Top-3 predictions ─────────────────────────────────────────────
@@ -626,8 +630,8 @@ with tab_history:
 st.markdown("---")
 st.markdown(
     "<div style='text-align: center; color: #888; font-size: 0.85em;'>"
-    "SmartInspect AI &nbsp;|&nbsp; Industrial Defect Detection &nbsp;|&nbsp; "
-    "EfficientNetB2 Transfer Learning &nbsp;|&nbsp; Academic Prototype"
+    "SmartInspect AI &nbsp;|&nbsp; AI-Powered Industrial Defect Detection &nbsp;|&nbsp; "
+    "CNN + EfficientNetB2 Transfer Learning"
     "</div>",
     unsafe_allow_html=True,
 )
